@@ -1,1 +1,19 @@
-Hello World
+
+<label style='font-weight: bold;font-size: 16px;' for='binary_number'>Binary Number</label><br><br>
+<input  id='binary_number' type='text'><br><br>
+<button onclick='convertToDec(document.getElementById("binary_number").value)'>Convert to DEC</button>
+
+<p>Decimal Value = <span id='decimal_value'></span></p>
+
+<script>
+	function convertToDec(binary_value){
+		var isBinary = !!binary_value.match(/^([01]{1,})$/g);
+
+		if(!isBinary){
+			document.getElementById('decimal_value').innerHTML = '';
+			alert('Your input does not match a binary number. Please make sure to insert only 0s and 1s.');
+		}
+		else
+			document.getElementById('decimal_value').innerHTML =  parseInt(binary_value, 2);
+	}
+</script>
